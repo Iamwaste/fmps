@@ -1,8 +1,13 @@
 #pragma once
 #include<string>
+#include "NonCopyable.h"
 #include<cstdint>
 #include "json/json.h"
 #include<memory>
+#include<mutex>
+#include "Singleton.h"
+#include "Logger.h"
+#include "FileLog.h"
 
 namespace fmps
 {
@@ -10,9 +15,10 @@ namespace fmps
     {
         struct LogInfo
         {
-            std::string level;
+            LogLevel level;
             std::string path;
             std::string name;
+            RotateType rotate_type{kRotateNone};
         };
         using LogInfoPtr = std::shared_ptr<LogInfo>;
 
@@ -33,5 +39,20 @@ namespace fmps
             LogInfoPtr log_info_;
         };
         
+        using ConfigPtr =std::shared_ptr<Config>;
+    
+        class ConfigMgr : public NonCopyable
+        {
+        public:
+            ConfigMgr() = default;
+            ~ConfigMgr() = default;
+
+            bool LoadConfig(const std::string& file);
+            ConfigPtr GetConfig();
+        private:
+            ConfigPtr config_;
+            std::mutex lock_;
+        };
     }
+    #define sConfigMgr fmps::base::Singleton<fmps::base::ConfigMgr>::Instance()
 }
