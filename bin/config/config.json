@@ -1,0 +1,13 @@
+{
+    "name" : "tmms server",
+    "cpu_start" : 0,
+    "threads" : 4,
+    "cpus":4,
+    "log" :
+    {
+        "level" : "TRACE",
+        "name" : "tmms.log",
+        "path" : "../log/"
+    }
+}
+
