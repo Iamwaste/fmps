@@ -80,17 +80,6 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -124,16 +113,27 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/masteryu/projects/fmps/build/CMakeFiles /home/masteryu/projects/fmps/build/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /home/masteryu/projects/fmps/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/masteryu/projects/fmps/build/CMakeFiles /home/masteryu/projects/fmps/build/src/network/net/tests/CMakeFiles/progress.marks
+	cd /home/masteryu/projects/fmps/build && $(MAKE) -f CMakeFiles/Makefile2 src/network/net/tests/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/masteryu/projects/fmps/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/masteryu/projects/fmps/build && $(MAKE) -f CMakeFiles/Makefile2 src/network/net/tests/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,96 +143,60 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/masteryu/projects/fmps/build && $(MAKE) -f CMakeFiles/Makefile2 src/network/net/tests/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/masteryu/projects/fmps/build && $(MAKE) -f CMakeFiles/Makefile2 src/network/net/tests/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/masteryu/projects/fmps/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named jsoncpp
+# Convenience name for target.
+src/network/net/tests/CMakeFiles/EventLoopThreadTest.dir/rule:
+	cd /home/masteryu/projects/fmps/build && $(MAKE) -f CMakeFiles/Makefile2 src/network/net/tests/CMakeFiles/EventLoopThreadTest.dir/rule
+.PHONY : src/network/net/tests/CMakeFiles/EventLoopThreadTest.dir/rule
 
-# Build rule for target.
-jsoncpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 jsoncpp
-.PHONY : jsoncpp
+# Convenience name for target.
+EventLoopThreadTest: src/network/net/tests/CMakeFiles/EventLoopThreadTest.dir/rule
 
-# fast build rule for target.
-jsoncpp/fast:
-	$(MAKE) -f CMakeFiles/jsoncpp.dir/build.make CMakeFiles/jsoncpp.dir/build
-.PHONY : jsoncpp/fast
-
-#=============================================================================
-# Target rules for targets named base_test
-
-# Build rule for target.
-base_test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 base_test
-.PHONY : base_test
-
-# fast build rule for target.
-base_test/fast:
-	$(MAKE) -f src/base/CMakeFiles/base_test.dir/build.make src/base/CMakeFiles/base_test.dir/build
-.PHONY : base_test/fast
-
-#=============================================================================
-# Target rules for targets named base
-
-# Build rule for target.
-base: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 base
-.PHONY : base
-
-# fast build rule for target.
-base/fast:
-	$(MAKE) -f src/base/CMakeFiles/base.dir/build.make src/base/CMakeFiles/base.dir/build
-.PHONY : base/fast
-
-#=============================================================================
-# Target rules for targets named network
-
-# Build rule for target.
-network: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 network
-.PHONY : network
-
-# fast build rule for target.
-network/fast:
-	$(MAKE) -f src/network/CMakeFiles/network.dir/build.make src/network/CMakeFiles/network.dir/build
-.PHONY : network/fast
-
-#=============================================================================
-# Target rules for targets named EventLoopThreadTest
-
-# Build rule for target.
-EventLoopThreadTest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 EventLoopThreadTest
 .PHONY : EventLoopThreadTest
 
 # fast build rule for target.
 EventLoopThreadTest/fast:
-	$(MAKE) -f src/network/net/tests/CMakeFiles/EventLoopThreadTest.dir/build.make src/network/net/tests/CMakeFiles/EventLoopThreadTest.dir/build
+	cd /home/masteryu/projects/fmps/build && $(MAKE) -f src/network/net/tests/CMakeFiles/EventLoopThreadTest.dir/build.make src/network/net/tests/CMakeFiles/EventLoopThreadTest.dir/build
 .PHONY : EventLoopThreadTest/fast
 
-#=============================================================================
-# Target rules for targets named fmps
+EventLoopThreadTest.o: EventLoopThreadTest.cpp.o
 
-# Build rule for target.
-fmps: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 fmps
-.PHONY : fmps
+.PHONY : EventLoopThreadTest.o
 
-# fast build rule for target.
-fmps/fast:
-	$(MAKE) -f src/main/CMakeFiles/fmps.dir/build.make src/main/CMakeFiles/fmps.dir/build
-.PHONY : fmps/fast
+# target to build an object file
+EventLoopThreadTest.cpp.o:
+	cd /home/masteryu/projects/fmps/build && $(MAKE) -f src/network/net/tests/CMakeFiles/EventLoopThreadTest.dir/build.make src/network/net/tests/CMakeFiles/EventLoopThreadTest.dir/EventLoopThreadTest.cpp.o
+.PHONY : EventLoopThreadTest.cpp.o
+
+EventLoopThreadTest.i: EventLoopThreadTest.cpp.i
+
+.PHONY : EventLoopThreadTest.i
+
+# target to preprocess a source file
+EventLoopThreadTest.cpp.i:
+	cd /home/masteryu/projects/fmps/build && $(MAKE) -f src/network/net/tests/CMakeFiles/EventLoopThreadTest.dir/build.make src/network/net/tests/CMakeFiles/EventLoopThreadTest.dir/EventLoopThreadTest.cpp.i
+.PHONY : EventLoopThreadTest.cpp.i
+
+EventLoopThreadTest.s: EventLoopThreadTest.cpp.s
+
+.PHONY : EventLoopThreadTest.s
+
+# target to generate assembly for a file
+EventLoopThreadTest.cpp.s:
+	cd /home/masteryu/projects/fmps/build && $(MAKE) -f src/network/net/tests/CMakeFiles/EventLoopThreadTest.dir/build.make src/network/net/tests/CMakeFiles/EventLoopThreadTest.dir/EventLoopThreadTest.cpp.s
+.PHONY : EventLoopThreadTest.cpp.s
 
 # Help Target
 help:
@@ -242,16 +206,14 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... install/local"
-	@echo "... edit_cache"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... jsoncpp"
-	@echo "... base_test"
-	@echo "... base"
-	@echo "... network"
+	@echo "... edit_cache"
 	@echo "... EventLoopThreadTest"
-	@echo "... fmps"
+	@echo "... EventLoopThreadTest.o"
+	@echo "... EventLoopThreadTest.i"
+	@echo "... EventLoopThreadTest.s"
 .PHONY : help
 
 
@@ -263,6 +225,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/masteryu/projects/fmps/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

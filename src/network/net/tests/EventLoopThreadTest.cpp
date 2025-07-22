@@ -1,0 +1,45 @@
+#include "network/net/EventLoop.h"
+#include "network/net/EventLoopThread.h"
+#include "network/net/PipEvent.h"
+#include "base/TTime.h"
+#include <iostream>
+#include <thread>
+
+using namespace fmps::network;
+
+EventLoopThread eventloop_thread;
+std::thread th;
+
+void TestEventLoopThread()
+{
+    eventloop_thread.Run();
+    EventLoop *loop = eventloop_thread.Loop();
+
+    if(loop)
+    {
+        std::cout << "loop:" << loop << std::endl;
+        PipEventPtr pipe = std::make_shared<PipEvent>(loop);
+        loop->AddEvent(pipe);
+        int64_t test = 12345;
+        pipe->Write((const char*)&test,sizeof(test));
+        th = std::thread([&pipe](){
+            while (1)
+        {
+             int64_t now = fmps::base::TTime::NowMs();
+            pipe->Write((const char*)&now,sizeof(now));
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+        }
+        });
+        while (1)
+        {
+            std::this_thread::sleep_for(std::chrono::milliseconds(50));
+        }
+        
+    }
+}
+
+int main(int argc, char ** argv)
+{
+    TestEventLoopThread();
+    return 0;
+}

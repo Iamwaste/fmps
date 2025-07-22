@@ -15,6 +15,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../src/CMakeLists.txt"
   "../src/base/CMakeLists.txt"
   "../src/main/CMakeLists.txt"
+  "../src/network/CMakeLists.txt"
+  "../src/network/net/tests/CMakeLists.txt"
   "/usr/share/cmake-3.16/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.16/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-3.16/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
@@ -49,6 +51,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/base/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/network/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/network/net/tests/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/main/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -57,5 +61,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/jsoncpp.dir/DependInfo.cmake"
   "src/base/CMakeFiles/base_test.dir/DependInfo.cmake"
   "src/base/CMakeFiles/base.dir/DependInfo.cmake"
+  "src/network/CMakeFiles/network.dir/DependInfo.cmake"
+  "src/network/net/tests/CMakeFiles/EventLoopThreadTest.dir/DependInfo.cmake"
   "src/main/CMakeFiles/fmps.dir/DependInfo.cmake"
   )

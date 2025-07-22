@@ -58,6 +58,15 @@
         "bitset": "cpp",
         "list": "cpp",
         "shared_mutex": "cpp",
-        "cinttypes": "cpp"
+        "cinttypes": "cpp",
+        "forward_list": "cpp",
+        "buffer": "cpp",
+        "executor": "cpp",
+        "internet": "cpp",
+        "io_context": "cpp",
+        "netfwd": "cpp",
+        "socket": "cpp",
+        "timer": "cpp",
+        "future": "cpp"
     }
 }

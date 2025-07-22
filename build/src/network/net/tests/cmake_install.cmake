@@ -1,4 +1,4 @@
-# Install script for directory: /home/masteryu/projects/fmps/src
+# Install script for directory: /home/masteryu/projects/fmps/src/network/net/tests
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,13 +35,5 @@ endif()
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("/home/masteryu/projects/fmps/build/src/base/cmake_install.cmake")
-  include("/home/masteryu/projects/fmps/build/src/network/cmake_install.cmake")
-  include("/home/masteryu/projects/fmps/build/src/main/cmake_install.cmake")
-
 endif()
 

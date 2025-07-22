@@ -215,6 +215,9 @@ fpms_BINARY_DIR:STATIC=/home/masteryu/projects/fmps/build
 //Value Computed by CMake
 fpms_SOURCE_DIR:STATIC=/home/masteryu/projects/fmps
 
+//Dependencies for the target
+network_LIB_DEPENDS:STATIC=general;base;
+
 
 ########################
 # INTERNAL cache entries
@@ -320,7 +323,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
