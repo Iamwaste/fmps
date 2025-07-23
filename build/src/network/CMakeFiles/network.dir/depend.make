@@ -4,6 +4,7 @@
 src/network/CMakeFiles/network.dir/net/Event.cpp.o: ../src/network/net/Event.cpp
 src/network/CMakeFiles/network.dir/net/Event.cpp.o: ../src/network/net/Event.h
 src/network/CMakeFiles/network.dir/net/Event.cpp.o: ../src/network/net/EventLoop.h
+src/network/CMakeFiles/network.dir/net/Event.cpp.o: ../src/network/net/PipEvent.h
 
 src/network/CMakeFiles/network.dir/net/EventLoop.cpp.o: ../src/base/FileLog.h
 src/network/CMakeFiles/network.dir/net/EventLoop.cpp.o: ../src/base/LogStream.h
@@ -13,12 +14,22 @@ src/network/CMakeFiles/network.dir/net/EventLoop.cpp.o: ../src/network/base/Netw
 src/network/CMakeFiles/network.dir/net/EventLoop.cpp.o: ../src/network/net/Event.h
 src/network/CMakeFiles/network.dir/net/EventLoop.cpp.o: ../src/network/net/EventLoop.cpp
 src/network/CMakeFiles/network.dir/net/EventLoop.cpp.o: ../src/network/net/EventLoop.h
+src/network/CMakeFiles/network.dir/net/EventLoop.cpp.o: ../src/network/net/PipEvent.h
 
 src/network/CMakeFiles/network.dir/net/EventLoopThread.cpp.o: ../src/base/NonCopyable.h
 src/network/CMakeFiles/network.dir/net/EventLoopThread.cpp.o: ../src/network/net/Event.h
 src/network/CMakeFiles/network.dir/net/EventLoopThread.cpp.o: ../src/network/net/EventLoop.h
 src/network/CMakeFiles/network.dir/net/EventLoopThread.cpp.o: ../src/network/net/EventLoopThread.cpp
 src/network/CMakeFiles/network.dir/net/EventLoopThread.cpp.o: ../src/network/net/EventLoopThread.h
+src/network/CMakeFiles/network.dir/net/EventLoopThread.cpp.o: ../src/network/net/PipEvent.h
+
+src/network/CMakeFiles/network.dir/net/EventLoopThreadPool.cpp.o: ../src/base/NonCopyable.h
+src/network/CMakeFiles/network.dir/net/EventLoopThreadPool.cpp.o: ../src/network/net/Event.h
+src/network/CMakeFiles/network.dir/net/EventLoopThreadPool.cpp.o: ../src/network/net/EventLoop.h
+src/network/CMakeFiles/network.dir/net/EventLoopThreadPool.cpp.o: ../src/network/net/EventLoopThread.h
+src/network/CMakeFiles/network.dir/net/EventLoopThreadPool.cpp.o: ../src/network/net/EventLoopThreadPool.cpp
+src/network/CMakeFiles/network.dir/net/EventLoopThreadPool.cpp.o: ../src/network/net/EventLoopThreadPool.h
+src/network/CMakeFiles/network.dir/net/EventLoopThreadPool.cpp.o: ../src/network/net/PipEvent.h
 
 src/network/CMakeFiles/network.dir/net/PipEvent.cpp.o: ../src/base/FileLog.h
 src/network/CMakeFiles/network.dir/net/PipEvent.cpp.o: ../src/base/LogStream.h

@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/network.dir/net/Event.cpp.o"
   "CMakeFiles/network.dir/net/EventLoop.cpp.o"
   "CMakeFiles/network.dir/net/EventLoopThread.cpp.o"
+  "CMakeFiles/network.dir/net/EventLoopThreadPool.cpp.o"
   "CMakeFiles/network.dir/net/PipEvent.cpp.o"
   "libnetwork.a"
   "libnetwork.pdb"

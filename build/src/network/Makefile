@@ -252,6 +252,33 @@ net/EventLoopThread.cpp.s:
 	cd /home/masteryu/projects/fmps/build && $(MAKE) -f src/network/CMakeFiles/network.dir/build.make src/network/CMakeFiles/network.dir/net/EventLoopThread.cpp.s
 .PHONY : net/EventLoopThread.cpp.s
 
+net/EventLoopThreadPool.o: net/EventLoopThreadPool.cpp.o
+
+.PHONY : net/EventLoopThreadPool.o
+
+# target to build an object file
+net/EventLoopThreadPool.cpp.o:
+	cd /home/masteryu/projects/fmps/build && $(MAKE) -f src/network/CMakeFiles/network.dir/build.make src/network/CMakeFiles/network.dir/net/EventLoopThreadPool.cpp.o
+.PHONY : net/EventLoopThreadPool.cpp.o
+
+net/EventLoopThreadPool.i: net/EventLoopThreadPool.cpp.i
+
+.PHONY : net/EventLoopThreadPool.i
+
+# target to preprocess a source file
+net/EventLoopThreadPool.cpp.i:
+	cd /home/masteryu/projects/fmps/build && $(MAKE) -f src/network/CMakeFiles/network.dir/build.make src/network/CMakeFiles/network.dir/net/EventLoopThreadPool.cpp.i
+.PHONY : net/EventLoopThreadPool.cpp.i
+
+net/EventLoopThreadPool.s: net/EventLoopThreadPool.cpp.s
+
+.PHONY : net/EventLoopThreadPool.s
+
+# target to generate assembly for a file
+net/EventLoopThreadPool.cpp.s:
+	cd /home/masteryu/projects/fmps/build && $(MAKE) -f src/network/CMakeFiles/network.dir/build.make src/network/CMakeFiles/network.dir/net/EventLoopThreadPool.cpp.s
+.PHONY : net/EventLoopThreadPool.cpp.s
+
 net/PipEvent.o: net/PipEvent.cpp.o
 
 .PHONY : net/PipEvent.o
@@ -301,6 +328,9 @@ help:
 	@echo "... net/EventLoopThread.o"
 	@echo "... net/EventLoopThread.i"
 	@echo "... net/EventLoopThread.s"
+	@echo "... net/EventLoopThreadPool.o"
+	@echo "... net/EventLoopThreadPool.i"
+	@echo "... net/EventLoopThreadPool.s"
 	@echo "... net/PipEvent.o"
 	@echo "... net/PipEvent.i"
 	@echo "... net/PipEvent.s"

@@ -33,7 +33,7 @@ void EventLoop::Loop()
         auto ret = ::epoll_wait(epoll_fd_,
                                 (struct epoll_event *)&epoll_events_[0],
                                 static_cast<int>(epoll_events_.size()), -1);
-        if (ret > 0)
+        if (ret >= 0)
         {
             for (int i = 0; i < ret; i++)
             {
@@ -78,10 +78,8 @@ void EventLoop::Loop()
             {
                 epoll_events_.resize(epoll_events_.size() * 2);
             }
-        }
-        else if (ret == 0)
-        {
-            /* code */
+
+            RunFuctions();
         }
         else if (ret < 0)
         {
@@ -186,3 +184,59 @@ bool EventLoop::EnableEventReading(const EventPtr &event, bool enable)
     epoll_ctl(epoll_fd_,EPOLL_CTL_MOD,event->fd_,&ev);
     return true;
 }
+
+void EventLoop::AssertInLoopThread()
+{
+    if(!IsInLoopThread()){
+        NETWORK_ERROR << "It is forbidden to run loop on other thread!!!";
+        exit(-1);
+    }
+}
+bool EventLoop::IsInLoopThread() const
+{
+    return t_local_eventloop == this;
+}
+void EventLoop::RunInLoop(const Func &f)
+{
+    if(IsInLoopThread()){
+        f();
+        return;
+    }
+    std::lock_guard<std::mutex> lk(lock_);
+    functions_.push(f);
+    WakeUp();
+}
+
+void EventLoop::RunInLoop(Func &&f)
+{
+    if(IsInLoopThread()){
+        f();
+        return;
+    }
+    std::lock_guard<std::mutex> lk(lock_);
+    functions_.push(std::move(f));
+    WakeUp();
+}
+
+void EventLoop::RunFuctions()
+{
+    std::lock_guard<std::mutex> lk(lock_);
+    while (!functions_.empty())
+    {
+        auto &f = functions_.front();
+        f();
+        functions_.pop();
+    }
+    
+}
+
+ void EventLoop::WakeUp()
+ {
+    if(!pipe_event_)
+    {
+        pipe_event_ = std::make_shared<PipEvent>(this);
+        AddEvent(pipe_event_);
+    }
+    int64_t tmp = 1;
+    pipe_event_->Write((const char*)&tmp,sizeof(tmp));
+ }

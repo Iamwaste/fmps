@@ -19,7 +19,7 @@ namespace fmps
 
             void Run();
             EventLoop *Loop() const;
-
+            std::thread &Thread();
         private:
             void StartEventLoop();
             EventLoop * loop_{nullptr};
